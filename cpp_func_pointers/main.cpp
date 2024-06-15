@@ -33,9 +33,11 @@ int main() {
 	int* arr = createArray<int>(*size);
 	cout << "Array:" << endl; printArray(arr, *size);
 	
+
 	//sum and multiply
 	int sum = 0, multiply = 1;
-	sum_and_multiply<int>(arr, *size,&sum,&multiply);
+	void (*func_pointer)(int*, int, int*, int*) = sum_and_multiply;
+	func_pointer(arr, *size,&sum,&multiply);
 	cout << endl << "Summary: " << sum << endl << "Multiply: " << multiply << endl;
 	
 	return 0;
