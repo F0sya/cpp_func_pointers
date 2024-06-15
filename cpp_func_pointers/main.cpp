@@ -40,9 +40,10 @@ int main() {
 	int* arr = createArray<int>(*size);
 	cout << "Array:" << endl; printArray(arr, *size);
 
-	//amount of positive,negative and zero elements
+	//amount of positive,negative and zero elements,  function pointer
 	int positive = 0, negative = 0, zero = 0;
-	counter<int>(arr, *size, &positive, &negative, &zero);
+	void (*func_pointer)(int*, int, int*, int*, int*) = counter;
+	func_pointer(arr, *size, &positive, &negative, &zero);
 	cout << endl << "Positive: " << positive << endl << "Negative: " << negative << endl << "Zero:" << zero << endl;
 
 	return 0;
